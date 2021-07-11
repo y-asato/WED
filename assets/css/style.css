@@ -1,0 +1,619 @@
+@charset "UTF-8";
+html {
+  font-size: 100%;
+}
+
+body {
+  background: #f0f0f0;
+  color: #000;
+  font-size: 0.875rem;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  font-size: 0.875rem;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+.logo {
+  width: 100px;
+  line-height: 1px;
+  margin-right: 60px;
+}
+
+@media (max-width: 900px) {
+  .logo {
+    width: 80px;
+    margin: 8px 0;
+  }
+}
+
+.logo a {
+  display: block;
+}
+
+.section-title {
+  font-weight: normal;
+  line-height: 1;
+  margin-bottom: 50px;
+  /*
+    疑似要素を使って下線を引く
+    */
+  /*
+    「display: inline-block;」を設定してブロック化することで、
+    改行されてmargin-bottomが使用できるようになる
+    */
+}
+
+@media (max-width: 900px) {
+  .section-title {
+    margin-bottom: 34px;
+  }
+}
+
+.section-title::after {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: #000;
+  display: block;
+}
+
+.section-title .en {
+  display: block;
+  font-size: 2.25rem;
+  letter-spacing: 0.3rem;
+  margin-bottom: 10px;
+}
+
+.section-title .ja {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 900px) {
+  .section-title .ja {
+    margin-bottom: 24px;
+  }
+}
+
+/*
+横幅を設定するための共通クラス
+*/
+.wrapper {
+  width: 100%;
+  max-width: 1032px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+/*-------------------------------------------
+Header
+-------------------------------------------*/
+#header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 80px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#header .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 900px) {
+  #header .inner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+#header .inner ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#header .inner ul li {
+  margin-right: 30px;
+}
+
+#header .inner ul li:last-child {
+  margin-right: 0;
+}
+
+#header .contact {
+  width: 200px;
+  height: 80px;
+  line-height: 80px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 0.75rem;
+  display: inline-block;
+}
+
+@media (max-width: 900px) {
+  #header .contact {
+    display: none;
+  }
+}
+
+#header .contact:hover {
+  background-color: #333;
+}
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+#mainvisual {
+  margin-bottom: 120px;
+  /*
+    メインビジュアルを画面の高さに合わせる
+    headerの高さが80pxあるので、100vhから80px分だけマイナスする
+    */
+}
+
+@media (max-width: 900px) {
+  #mainvisual {
+    margin-bottom: 80px;
+  }
+}
+
+#mainvisual img {
+  width: 100%;
+  height: calc(100vh - 80px);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*-------------------------------------------
+News
+-------------------------------------------*/
+#news {
+  margin-bottom: 120px;
+}
+
+@media (max-width: 900px) {
+  #news {
+    margin-bottom: 80px;
+  }
+}
+
+#news .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  /*
+        「width: calc(100%/3);」で横幅を3等分する
+        */
+}
+
+@media (max-width: 900px) {
+  #news .list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+#news .list li {
+  width: calc(100%/3);
+  border-right: 1px solid #000;
+  padding: 10px 20px;
+}
+
+@media (max-width: 900px) {
+  #news .list li {
+    width: 100%;
+    border-right: none;
+    padding: 10px 0;
+    margin-bottom: 20px;
+  }
+}
+
+#news .list li:first-child {
+  padding-left: 0;
+}
+
+#news .list li:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+@media (max-width: 900px) {
+  #news .list li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+#news .list li .date-area {
+  margin-bottom: 16px;
+}
+
+#news .list li .date-area span {
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+  background-color: #000;
+  color: #fff;
+  display: inline-block;
+  font-size: 0.75rem;
+  margin-left: 10px;
+  text-align: center;
+}
+
+/*-------------------------------------------
+About
+-------------------------------------------*/
+#about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 120px;
+}
+
+@media (max-width: 900px) {
+  #about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 80px;
+  }
+}
+
+#about .img {
+  width: 55%;
+}
+
+@media (max-width: 900px) {
+  #about .img {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+#about .img img {
+  width: 100%;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  #about .img img {
+    height: 300px;
+  }
+}
+
+#about .text {
+  width: 45%;
+  padding: 180px 5% 0 5%;
+}
+
+@media (max-width: 900px) {
+  #about .text {
+    width: 100%;
+    padding: 0 16px;
+  }
+}
+
+#about .text p {
+  line-height: 2.2;
+}
+
+/*-------------------------------------------
+Business
+-------------------------------------------*/
+#business {
+  margin-bottom: 120px;
+}
+
+@media (max-width: 900px) {
+  #business {
+    margin-bottom: 80px;
+  }
+}
+
+#business .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 10%;
+}
+
+@media (max-width: 900px) {
+  #business .flex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 0;
+  }
+}
+
+#business .flex .left {
+  width: 46%;
+  margin-top: 100px;
+}
+
+@media (max-width: 900px) {
+  #business .flex .left {
+    width: 100%;
+    margin: 0 0 30px 0;
+  }
+}
+
+#business .flex .right {
+  width: 46%;
+}
+
+@media (max-width: 900px) {
+  #business .flex .right {
+    width: 100%;
+  }
+}
+
+#business .flex .item {
+  margin-bottom: 50px;
+}
+
+@media (max-width: 900px) {
+  #business .flex .item {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+#business .flex .item:last-child {
+  margin-bottom: 0;
+}
+
+#business .flex .title {
+  font-weight: bold;
+  margin: 0 0 10px 18px;
+  position: relative;
+  /*
+            疑似要素でタイトルの横線を引く
+            */
+}
+
+@media (max-width: 900px) {
+  #business .flex .title {
+    text-align: left;
+  }
+}
+
+#business .flex .title::before {
+  content: "";
+  width: 8px;
+  height: 1px;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  left: -18px;
+}
+
+/*-------------------------------------------
+Company
+-------------------------------------------*/
+/*
+テキストと画像はpositionを使って配置。
+子要素の「position: absolute;」で高さがなくなるため、
+「height: 750px;」を指定して高さを確保
+*/
+#company {
+  height: 750px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  #company {
+    height: auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: static;
+  }
+}
+
+#company .text {
+  width: 55%;
+  background-color: #fff;
+  padding: 100px 8% 100px 6%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: 900px) {
+  #company .text {
+    width: 100%;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+    position: static;
+  }
+}
+
+#company .img {
+  width: 53%;
+  position: absolute;
+  top: 115px;
+  right: 0;
+}
+
+@media (max-width: 900px) {
+  #company .img {
+    width: 100%;
+    padding: 0;
+    position: static;
+  }
+}
+
+#company .img img {
+  width: 100%;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#company .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  #company .info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+#company .info dt {
+  width: 20%;
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  #company .info dt {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+#company .info dt:first-of-type {
+  margin-top: 0;
+}
+
+#company .info dd {
+  width: 80%;
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  #company .info dd {
+    width: 100%;
+    margin-top: 5px;
+    padding-left: 14px;
+  }
+}
+
+#company .info dd:first-of-type {
+  margin-top: 0;
+}
+
+@media (max-width: 900px) {
+  #company .info dd:first-of-type {
+    margin-top: 5px;
+  }
+}
+
+#company .info .add {
+  margin-left: 20%;
+}
+
+@media (max-width: 900px) {
+  #company .info .add {
+    margin-left: 0;
+  }
+}
+
+/*-------------------------------------------
+footer
+-------------------------------------------*/
+#footer {
+  background-color: #fff;
+  padding-bottom: 20px;
+}
+
+#footer .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 40px 0;
+}
+
+@media (max-width: 900px) {
+  #footer .flex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+#footer .flex .logo {
+  margin-right: 0;
+}
+
+@media (max-width: 900px) {
+  #footer .flex .logo {
+    margin-bottom: 10px;
+  }
+}
+
+#footer .copyright {
+  font-size: 0.625rem;
+}
+/*# sourceMappingURL=style.css.map */
